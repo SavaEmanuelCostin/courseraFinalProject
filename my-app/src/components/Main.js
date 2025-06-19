@@ -1,8 +1,12 @@
-
+import Highlights from "./HighlightsSection";
 const Main = () => {
 
   return (
-    <main>Test Main component</main>
+    <main>
+        <div className="container">
+            <Highlights />
+        </div>
+    </main>
   );
 };
 export default Main;
