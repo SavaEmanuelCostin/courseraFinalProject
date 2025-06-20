@@ -5,21 +5,21 @@ const weekSpecials = [
         title: "Greek salad",
         description:
         "The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons.",
-        getImageSrc: () => require("../images/salad.jpg"),
+        getImageSrc: () => require("../../images/salad.jpg"),
         price: "12.99"
     },
     {
         title: "Bruchetta",
         description:
         "Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil.",
-        getImageSrc: () => require("../images/bruchetta.jpg"),
+        getImageSrc: () => require("../../images/bruchetta.jpg"),
         price: "5.99"
     },
     {
         title: "Lemon Dessert",
         description:
         "This comes straight from grandma's recipe book, every last ingredient has been sourced and is as authentic as can be imagined.",
-        getImageSrc: () => require("../images/lemon.jpg"),
+        getImageSrc: () => require("../../images/lemon.jpg"),
         price: "5.00"
     },
 ];

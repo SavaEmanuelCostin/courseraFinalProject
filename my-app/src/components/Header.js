@@ -3,7 +3,7 @@ import Logo from "../images/Logo.svg";
 import MobileNavIcon from "../images/icon-hamburger-menu.svg";
 import MobileCloseButton from "../images/menu-close.svg";
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
 const Header = () => {
     const [isNavVisible, setIsNavVisible] = useState(false);
 
@@ -20,7 +20,7 @@ const Header = () => {
                 <nav>
                     <ul>
                         <li>
-                            <a href="#Home">Home</a>
+                            <Link to="/">Home</Link>
                         </li>
                         <li>
                             <a href="#About">About</a>
@@ -29,7 +29,7 @@ const Header = () => {
                             <a href="#Menu">Menu</a>
                         </li>
                         <li>
-                            <a href="#Reservations">Reservations</a>
+                            <Link to="/booking">Reservations</Link>
                         </li>
                         <li>
                             <a href="#OrderOnline">Order Online</a>

@@ -1,7 +1,9 @@
+import ScouterIcon from "../../images/scouter-icon.svg";
+
 const Card = ({ title, description, imageSrc, price }) => {
     return (
         <div className="card">
-            <div className="card-image" style={{backgroundImage: `url(${imageSrc})`}}></div>
+            <div className="card-image bg-image" style={{backgroundImage: `url(${imageSrc})`}}></div>
             <div className="card-inner-container">
                 <div className="card-top-text">
                     <h4>{title}</h4>
@@ -11,7 +13,7 @@ const Card = ({ title, description, imageSrc, price }) => {
                     {description}
                 </div>
                 <div className="card-footer">
-                    <a href="#OrderDelivery">Order a delivery</a>
+                    <a href="#OrderDelivery">Order a delivery <img src={ScouterIcon} alt="Scouter"></img></a>
                 </div>
             </div>
         </div>

@@ -1,20 +1,20 @@
 
 import FooterImage from "../images/restauranfood.jpg";
-
+import { Link } from "react-router-dom";
 const Footer = () => {
 
   return (
     <footer>
         <div className="container">
             <div className="footer-image-container">
-                <img src={FooterImage} alt="Footer img"></img>
+                <div className="footer-image-bg bg-image" style={{backgroundImage: `url(${FooterImage})`}}></div>
             </div>
             <div className="footer-links-container">
                 <div>
                     <h3>Navigation</h3>
                     <ul>
                         <li>
-                            <a href="#Home">Home</a>
+                            <Link to="/">Home</Link>
                         </li>
                         <li>
                             <a href="#About">About</a>
@@ -23,7 +23,7 @@ const Footer = () => {
                             <a href="#Menu">Menu</a>
                         </li>
                         <li>
-                            <a href="#Reservations">Reservations</a>
+                            <Link to="/booking">Reservations</Link>
                         </li>
                         <li>
                             <a href="#OrderOnline">Order Online</a>
