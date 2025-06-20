@@ -1,17 +1,47 @@
 
+import React, { useEffect, useRef } from "react";
 import Logo from "../images/Logo.svg";
 import MobileNavIcon from "../images/icon-hamburger-menu.svg";
 import MobileCloseButton from "../images/menu-close.svg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 const Header = () => {
+
+    const headerRef = useRef(null);
+
+    useEffect(() => {
+    let prevPos = window.scrollY;
+
+    const handleScroll = () => {
+      const currScrollPos = window.scrollY;
+      const currHeaderElement = headerRef.current;
+
+      if (!currHeaderElement)
+        return;
+    
+      if (prevPos > currScrollPos)
+        currHeaderElement.style.transform = "translateY(0)";
+      else
+        currHeaderElement.style.transform = "translateY(-72px)";
+      
+      prevPos = currScrollPos;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+
     const [isNavVisible, setIsNavVisible] = useState(false);
 
     const handleClick = () => {
         setIsNavVisible((prev) => !prev);
     };
   return (
-    <header>
+    <header ref={headerRef}>
         <div className="container">
             <div className="logo-container">
                 <img src={Logo} alt="Logo"></img>
