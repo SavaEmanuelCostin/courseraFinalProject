@@ -13,11 +13,11 @@ const TestimonialsCard = ({ name, rating, image }) => {
             <div className="review-section">
                  {Array.from({ length: totalStars }).map((_, index) => (
                     <img
-                    key={index}
-                    src={index < rating ? fullStar : emptyStar}
-                    alt={index < rating ? "Full star" : "Empty star"}
-                    width={22}
-                    height={22}
+                        key={index}
+                        src={index < rating ? fullStar : emptyStar}
+                        alt={index < rating ? "Full star" : "Empty star"}
+                        width={22}
+                        height={22}
                     />
                 ))}
             </div>
