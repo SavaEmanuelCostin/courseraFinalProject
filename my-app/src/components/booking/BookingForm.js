@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 
-const BookingForm = ({availableTimes, dispatch }) => {
+const BookingForm = ({availableTimes, dispatch, submitForm  }) => {
 
     const [date, setDate] = useState('');
     const [time, setTime] = useState('');
@@ -9,31 +9,37 @@ const BookingForm = ({availableTimes, dispatch }) => {
     const [occasion, setOccasion] = useState('');
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log({
-        date,
-        time,
-        guests,
-        occasion,
-        });
+    e.preventDefault();
+    const formData = {
+      date,
+      time,
+      guests,
+      occasion,
+    };
+    submitForm(formData);
+  };
+
+    const handleDateChange = (e) => {
+        const selectedDate = new Date(e.target.value);
+        setDate(e.target.value);
+        dispatch({ type: 'update_times', date: selectedDate });
     };
 
     return (
-        <form
+        <div className='booking-form-main-wrapper small-container'>
+        <h1>Book Now</h1>
+        <form className='booking-form'
         onSubmit={handleSubmit}
-        style={{ display: 'grid', maxWidth: '200px', gap: '20px' }}
         >
+            <div>
             <label htmlFor="res-date">Choose date</label>
             <input
                 type="date"
                 id="res-date"
                 value={date}
-                onChange={(e) => {
-                    setDate(e.target.value);
-                    dispatch({ type: 'update', date: e.target.value });
-                }}
+                onChange={handleDateChange}
             />
-
+            </div><div>
             <label htmlFor="res-time">Choose time</label>
             <select
                 id="res-time"
@@ -47,7 +53,7 @@ const BookingForm = ({availableTimes, dispatch }) => {
                 </option>
                 ))}
             </select>
-
+            </div><div>
             <label htmlFor="guests">Number of guests</label>
             <input
                 type="number"
@@ -57,7 +63,7 @@ const BookingForm = ({availableTimes, dispatch }) => {
                 value={guests}
                 onChange={(e) => setGuests(e.target.value)}
             />
-
+            </div><div>
             <label htmlFor="occasion">Occasion</label>
             <select
                 id="occasion"
@@ -68,9 +74,10 @@ const BookingForm = ({availableTimes, dispatch }) => {
                 <option value="Birthday">Birthday</option>
                 <option value="Anniversary">Anniversary</option>
             </select>
-
-            <input type="submit" value="Make Your Reservation" />
+            </div>
+            <button className='button button-default' type="submit" value="Make Your Reservation">Submit</button>
         </form>
+        </div>
     );
 };
 

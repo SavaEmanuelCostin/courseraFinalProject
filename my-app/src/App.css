@@ -48,6 +48,9 @@ table {
 	border-spacing: 0;
 }
 
+strong{
+  font-weight: bold;
+}
 
 /* Global styles */
 
@@ -55,6 +58,13 @@ table {
   padding: 0 20px;
   max-width: 940px;
   margin: 0 auto;
+}
+
+.small-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 70px 0;
+  min-height: calc(100vh - 550px);
 }
 
 body {
@@ -114,6 +124,10 @@ h4{
   border-radius: 16px;
   cursor: pointer;
   transition: all .3s ease;
+}
+
+.confirmed-booking-main-wrapper .button{
+  max-width: none;
 }
 
 .button:hover{
@@ -337,7 +351,6 @@ footer .container {
 /* Banner */
 .banner-main-container {
   margin-bottom: 70px;
-  padding-top: 70px;
 }
 .banner-infos{
   max-width: calc(100% - 70px - 420px);
@@ -363,13 +376,19 @@ footer .container {
 }
 
 .banner-main-container{
-  overflow: hidden;
   color: #fff;
+}
+
+main{
+  overflow-x: hidden;
+  padding-top: 70px;
 }
 
 .banner-main-container .container{
   display: flex;
   gap: 70px;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .banner-infos-bg-container{
@@ -625,4 +644,71 @@ footer .container {
   .about-featured-photos{
     height: 300px;
   }
+}
+
+/* Booking pages */
+
+.confirmed-booking-main-wrapper {
+  text-align: center;
+}
+
+.confirmation-details-wrapper{
+  background-color: #495E57;
+  max-width: 400px;
+  color: #fff;
+  border-radius: 20px;
+  padding: 30px 20px 35px 20px;
+  margin: 40px auto;
+  text-align: left;
+}
+
+.confirmation-details-wrapper h4{
+  margin-bottom: 20px;
+  font-size: 30px;
+  color: #F4CE14;
+}
+
+.confirmation-details-wrapper ul li {
+  margin-top: 15px;
+  font-size: 20px;
+}
+
+.booking-form input,
+.booking-form select{
+  font-size: 20px;
+  display: block;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+  box-shadow: none;
+}
+
+.booking-form label{
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.booking-form > div{
+  margin-bottom: 30px;
+}
+
+.booking-form-main-wrapper h1{
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.booking-form .button{
+  padding: 19px 55px;
+  min-width: 50%;
+  margin: 50px auto 0 auto;
+  display: block;
+}
+
+.confirmed-booking-main-wrapper .button {
+  max-width: none;
+  padding: 19px 55px;
 }
