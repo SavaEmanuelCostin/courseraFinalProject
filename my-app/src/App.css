@@ -685,6 +685,36 @@ main{
   box-shadow: none;
 }
 
+.booking-form input:focus,
+.booking-form select:focus{
+  border: 1px solid #495E57;
+  outline: none;
+}
+
+.booking-form select{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("./images/chevron-down.svg");
+  background-repeat: no-repeat;
+  background-position: center right 20px;
+}
+
+.booking-form .invalid-input{
+  border-color: red !important;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 8px;
+}
+
+.booking-form .button:disabled{
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 .booking-form label{
   font-weight: bold;
   font-size: 20px;
@@ -711,4 +741,17 @@ main{
 .confirmed-booking-main-wrapper .button {
   max-width: none;
   padding: 19px 55px;
+}
+
+@media only screen and (max-width: 767px){
+  .booking-form label{
+    font-size: 14px;
+  }
+  .booking-form input, .booking-form select{
+    font-size: 15px;
+    padding: 15px 20px;
+  }
+  .booking-form .button{
+    padding: 15px 30px;
+  }
 }

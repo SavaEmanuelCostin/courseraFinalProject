@@ -3,7 +3,7 @@ import aboutImgSecond from "../../images/restaurant-chef.jpg";
 
 const AboutSection = () => {
     return(
-        <div className="about-container-wrapper">
+        <div id="About" className="about-container-wrapper">
             <div className="about-left-info">
                 <h2>Little Lemon</h2>
                 <h3>Chicago</h3>

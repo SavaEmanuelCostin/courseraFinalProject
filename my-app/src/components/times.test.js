@@ -1,32 +1,28 @@
 import { initializeTimes, updateTimes } from './bookingUtils';
+import * as api from '../api/api';
 
 describe('initializeTimes', () => {
-  test('should return default time slots', () => {
+  test('should return default time slots from fetchAPI for today', () => {
+    const mockTimes = ['17:00', '18:30'];
+    jest.spyOn(api, 'fetchAPI').mockReturnValue(mockTimes);
+
     const times = initializeTimes();
-    expect(times).toEqual([
-      '17:00',
-      '18:00',
-      '19:00',
-      '20:00',
-      '21:00',
-      '22:00',
-    ]);
+
+    expect(api.fetchAPI).toHaveBeenCalledTimes(1);
+    expect(times).toEqual(mockTimes);
   });
 });
 
 describe('updateTimes', () => {
-  test('should return same default times regardless of date', () => {
-    const currentState = ['17:00', '18:00'];
-    const newDate = new Date();
-    const updatedTimes = updateTimes(currentState, newDate);
+  test('should return updated time slots based on selected date', () => {
+    const mockTimes = ['17:00', '20:00'];
+    const mockDate = new Date('2025-06-30');
 
-    expect(updatedTimes).toEqual([
-      '17:00',
-      '18:00',
-      '19:00',
-      '20:00',
-      '21:00',
-      '22:00',
-    ]);
+    jest.spyOn(api, 'fetchAPI').mockReturnValue(mockTimes);
+
+    const newState = updateTimes([], { type: 'update_times', date: mockDate });
+
+    expect(api.fetchAPI).toHaveBeenCalledWith(mockDate);
+    expect(newState).toEqual(mockTimes);
   });
 });

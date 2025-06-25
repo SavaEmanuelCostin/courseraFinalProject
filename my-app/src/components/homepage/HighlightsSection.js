@@ -26,7 +26,7 @@ const weekSpecials = [
 
 const Highlights = () => {
     return (
-        <>
+        <div id="Menu">
         <div className="title-with-button">
             <h2>This weeks specials!</h2>
             <button type="button" className="button button-default">Online Menu</button>
@@ -40,7 +40,7 @@ const Highlights = () => {
                 price={special.price} />
             ))}
         </div>
-        </>
+        </div>
     )
 }
 
