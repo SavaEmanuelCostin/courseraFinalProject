@@ -13,7 +13,7 @@ const Card = ({ title, description, imageSrc, price }) => {
                     {description}
                 </div>
                 <div className="card-footer">
-                    <a href="#OrderDelivery">Order a delivery <img src={ScouterIcon} alt="Scouter"></img></a>
+                    <a href="#OrderDelivery" aria-label="Order a delivery">Order a delivery <img src={ScouterIcon} alt="Scouter"></img></a>
                 </div>
             </div>
         </div>

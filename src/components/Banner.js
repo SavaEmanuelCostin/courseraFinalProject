@@ -14,7 +14,7 @@ const Banner = () => {
                         <h1>Little Lemon</h1>
                         <h2>Chicago</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <button onClick={handleClick} type="button" className="button button-default">Reserve a table</button>
+                        <button onClick={handleClick} type="button" className="button button-default" aria-label="Reserve a table">Reserve a table</button>
                     </div>
                 </div>
                 <div className="banner-bg-image bg-image" style={{backgroundImage: `url(${BannerImage})`}}></div>

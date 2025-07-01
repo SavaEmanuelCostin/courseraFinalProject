@@ -50,22 +50,22 @@ const Header = () => {
                 <nav>
                     <ul>
                         <li>
-                            <Link to="/">Home</Link>
+                            <Link aria-label="Go to Homepage" to="/">Home</Link>
                         </li>
                         <li>
-                            <a href="/#About">About</a>
+                            <a aria-label="Go to About Section" href="/#About">About</a>
                         </li>
                         <li>
-                            <a href="/#Menu">Menu</a>
+                            <a aria-label="Go to Menu Section" href="/#Menu">Menu</a>
                         </li>
                         <li>
-                            <Link to="/booking">Reservations</Link>
+                            <Link aria-label="Go to Reservations page" to="/booking">Reservations</Link>
                         </li>
                         <li>
-                            <a href="#OrderOnline">Order Online</a>
+                            <a aria-label="Go to Order Online page" href="#OrderOnline">Order Online</a>
                         </li>
                         <li>
-                            <a href="#Login">Login</a>
+                            <a aria-label="Go to Login page" href="#Login">Login</a>
                         </li>
                     </ul>
                 </nav>

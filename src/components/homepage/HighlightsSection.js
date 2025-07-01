@@ -29,7 +29,7 @@ const Highlights = () => {
         <div id="Menu">
         <div className="title-with-button">
             <h2>This weeks specials!</h2>
-            <button type="button" className="button button-default">Online Menu</button>
+            <button aria-label="Online Menu" type="button" className="button button-default">Online Menu</button>
         </div>
         <div className="highlights-container">
             {weekSpecials.map((special) => (
