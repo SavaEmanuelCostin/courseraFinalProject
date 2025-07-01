@@ -1,34 +1,61 @@
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import BookingForm from './BookingForm';
 
 describe('BookingForm JS validation', () => {
-  const defaultProps = {
+  const props = {
     availableTimes: ['17:00', '18:00'],
     dispatch: jest.fn(),
     submitForm: jest.fn(),
   };
 
-  test('does not submit with empty fields and shows validation errors after touch', () => {
-    render(<BookingForm {...defaultProps} />);
+  test('shows validation messages on invalid submission', () => {
+    render(<BookingForm {...props} />);
     const submitButton = screen.getByRole('button', { name: /submit/i });
 
-    // Declanșează "touched" pe toate câmpurile
-    fireEvent.focus(screen.getByLabelText(/choose date/i));
-    fireEvent.blur(screen.getByLabelText(/choose date/i));
+    const dateInput = screen.getByLabelText(/choose date/i);
+    fireEvent.focus(dateInput);
+    fireEvent.blur(dateInput);
 
-    fireEvent.focus(screen.getByLabelText(/choose time/i));
-    fireEvent.blur(screen.getByLabelText(/choose time/i));
+    const timeSelect = screen.getByLabelText(/choose time/i);
+    fireEvent.focus(timeSelect);
+    fireEvent.blur(timeSelect);
 
-    fireEvent.focus(screen.getByLabelText(/occasion/i));
-    fireEvent.blur(screen.getByLabelText(/occasion/i));
+    const occasionSelect = screen.getByLabelText(/occasion/i);
+    fireEvent.focus(occasionSelect);
+    fireEvent.blur(occasionSelect);
 
     fireEvent.click(submitButton);
 
-    expect(defaultProps.submitForm).not.toHaveBeenCalled();
-
-    // Acum putem verifica mesajele
+    expect(props.submitForm).not.toHaveBeenCalled();
     expect(screen.getByText(/date is required/i)).toBeInTheDocument();
     expect(screen.getByText(/time is required/i)).toBeInTheDocument();
     expect(screen.getByText(/occasion is required/i)).toBeInTheDocument();
+  });
+
+  test('submits the form with valid data', () => {
+    render(<BookingForm {...props} />);
+    fireEvent.change(screen.getByLabelText(/choose date/i), {
+      target: { value: '2025-06-25' },
+    });
+    fireEvent.change(screen.getByLabelText(/choose time/i), {
+      target: { value: '17:00' },
+    });
+    fireEvent.change(screen.getByLabelText(/number of guests/i), {
+      target: { value: '3' },
+    });
+    fireEvent.change(screen.getByLabelText(/occasion/i), {
+      target: { value: 'Birthday' },
+    });
+
+    fireEvent.click(screen.getByRole('button', { name: /submit/i }));
+
+    expect(props.submitForm).toHaveBeenCalledWith({
+      date: '2025-06-25',
+      time: '17:00',
+      guests: 3,
+      occasion: 'Birthday',
+    });
+
   });
 });

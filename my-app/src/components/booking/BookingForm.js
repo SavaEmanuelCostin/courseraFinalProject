@@ -53,6 +53,7 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
           <input
             type="date"
             id="res-date"
+            required
             value={date}
             onChange={handleDateChange}
             onBlur={() => handleBlur('date')}
@@ -66,6 +67,7 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
         <div>
           <label htmlFor="res-time">Choose time</label>
           <select
+            required
             id="res-time"
             value={time}
             onChange={(e) => setTime(e.target.value)}
@@ -85,6 +87,7 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
         <div>
           <label htmlFor="guests">Number of guests</label>
           <input
+            required
             type="number"
             id="guests"
             min="1"
@@ -102,6 +105,7 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
         <div>
           <label htmlFor="occasion">Occasion</label>
           <select
+            required
             id="occasion"
             value={occasion}
             onChange={(e) => setOccasion(e.target.value)}
